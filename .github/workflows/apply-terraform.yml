@@ -18,6 +18,7 @@ env:
 jobs:
   terraform-plan:
     name: 'Plan Terraform Job'
+    if: github.event_name == 'workflow_run'
     runs-on: ubuntu-latest
     
     steps:
