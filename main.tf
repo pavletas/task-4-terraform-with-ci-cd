@@ -9,6 +9,12 @@ terraform {
       version = "3.6.3"
     }
   }
+  backend "azurerm" {
+    resource_group_name = "StorageRg"
+    storage_account_name = "taskboardstoragepavleta"
+    container_name = "taskboardcontainer"
+    key = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
