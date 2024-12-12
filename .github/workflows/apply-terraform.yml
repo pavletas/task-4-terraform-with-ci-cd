@@ -37,13 +37,13 @@ jobs:
       run: terraform init
 
     - name: Terraform Generate Plan
-      run: terraform plan -out=plan.tfplan
+      run: terraform plan -out=terraform.plan
 
     - name: Save Plan
       uses: actions/upload-artifact@v3
       with:
         name: terraform-plan
-        path: plan.tfplan
+        path: terraform.plan
 
   terraform-apply:
     name: 'Apply Terraform Job'
@@ -66,4 +66,4 @@ jobs:
         name: terraform-plan # Name of the artifact to download
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve terraform-plan
+      run: terraform apply -auto-approve terraform.plan
